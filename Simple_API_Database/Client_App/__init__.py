@@ -24,7 +24,7 @@ class program:
             else:
                 with contextlib.ExitStack() as stack:
                     file = stack.enter_context(io.open(filename, mode='r', encoding='utf-8', errors='ignore'))
-                    data = json.load(file)
+                    data = json.load(file) #chave methods e IP são usados apenas no contexto deste app cliente para se referir ao IP/Porta, o servidor não usa esse valores.
                     
                     if data['method'] == "GET": #MÉTODOS SÃO SELECIONADOS A PARTIR DO ARQUIVO JSON NA PASTA REQUESTS.
                         response = requests.get(data['IP'], json=data)
