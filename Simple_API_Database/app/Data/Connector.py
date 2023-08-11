@@ -23,7 +23,7 @@ class ReadWrite:
         try:
             with contextlib.ExitStack() as stack:
                 file = stack.enter_context(open(filename, mode='w', encoding='utf-8', errors='ignore'))
-                file.write(content)  #cria o arquivo e escreve o conteúdo recebido.
+                file.write(content + '\n')  #cria o arquivo e escreve o conteúdo recebido.
                                 
             return ReadWrite.read_file(filename) #retorna o conteúdo do arquivo quando bem sucedido.
             
