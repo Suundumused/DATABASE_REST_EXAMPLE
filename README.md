@@ -1,4 +1,5 @@
 # TXT_DATABASE_REST_EXAMPLE
+<p align="center"># Creative Commons Zero v1.0 Universal -- @Caio Silva signed as Suundumused</p>
 Simple client and HTTP interactions for handling text files.
 
 <h3>Requirements</h2>
