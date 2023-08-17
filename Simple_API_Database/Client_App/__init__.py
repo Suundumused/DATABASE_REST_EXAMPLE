@@ -13,7 +13,7 @@ import keyboard
 class program:
     def read_json_file(file): #abrir arquivo json contendo a requisição.
         print(file)
-        filename = os.path.join(os.path.dirname(os.path.abspath(__name__)), "requests") + "/" + file
+        filename = os.path.join(os.path.dirname(os.path.abspath(__name__)), "reqq") + "/" + file
         print(filename)
         
         try:
