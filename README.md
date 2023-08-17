@@ -1,4 +1,4 @@
-# TXT_DATABASE_REST_EXAMPLE python 3.10.11
+# TXT_DATABASE_REST_EXAMPLE | python 3.10.11
 Simple client and HTTP interactions for handling text files.
 
 <p>*use -ip or --host to change IP.</p>
