@@ -2,7 +2,7 @@
 Simple client and HTTP interactions for handling text files.
 
 <h3>Requirements</h2>
-<p>*Python versions 3.10 - 3.11</p>
+<p>*Python versions from 3.6.3 to 3.11..</p>
 <p>*Last version of modules for that version of python.</p>
 <p></p>
 <h3>Server</h3>
