@@ -10,4 +10,4 @@ Simple client and HTTP interactions for handling text files.
 <p>*In the client app, change the contents of the requests folder like IP, method and the content.</p>
 <p>*First option type 1, then the file name including the json extension to run the script.</p>
 <p>*Keep the file's structure for each method.</p>
-<p>*Start from __init__.py.</p>
+<p>*Start from __init__.py</p>
