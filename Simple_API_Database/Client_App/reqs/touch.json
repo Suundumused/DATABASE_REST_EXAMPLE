@@ -1,0 +1,6 @@
+{
+    "method" : "POST",
+    "IP" : "http://127.0.0.1:8080/touch",
+    "database" : "db2.txt",
+    "content":"AAAAAAAAdAAXXXXXXXXXXXAAAAAAAAAAAAAAnsadsa"
+}

@@ -3,7 +3,16 @@ from flask import *
 import sys
 import os
 
-sys.path.insert(1, os.path.join(os.path.dirname(os.path.abspath(__file__)), "../Data"))
+config_name = 'Data'
+           
+if getattr(sys, 'frozen', False):  #-----ATUALIZADO-----
+    # Executando como executable (PyInstaller)
+    path = os.path.dirname(sys.executable)
+else:
+    # Executando como  script .py
+    path = os.path.dirname(os.path.abspath(sys.argv[0]))
+
+sys.path.insert(1, os.path.join(path, config_name))
 import Connector #Carrega script que faz a leitura/escrita de arquivos.
 
 class Protection:
@@ -30,7 +39,16 @@ class Protection:
 class Routes:
     def __init__(self, app):
         
-        self.storage = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../storage") #define a pasta local onde os arquivos serão manipulados.
+        config_name = 'storage'
+           
+        if getattr(sys, 'frozen', False):  #-----ATUALIZADO-----
+            # Executando como executable (PyInstaller)
+            path = os.path.dirname(sys.executable)
+        else:
+            # Executando como  script .py
+            path = os.path.dirname(os.path.abspath(sys.argv[0]))
+        
+        self.storage = os.path.join(path, config_name) #define a pasta local onde os arquivos serão manipulados.
         
         @app.errorhandler(415)
         def unsupported_media_type(error):

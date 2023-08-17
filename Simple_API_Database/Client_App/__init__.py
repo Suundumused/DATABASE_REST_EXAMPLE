@@ -12,14 +12,22 @@ import keyboard
 
 class program:
     def read_json_file(file): #abrir arquivo json contendo a requisição.
-        print(file)
-        filename = os.path.join(os.path.dirname(os.path.abspath(__name__)), "reqq") + "/" + file
-        print(filename)
+        
+        config_name = 'reqs'
+           
+        if getattr(sys, 'frozen', False):  #-----ATUALIZADO-----
+            # Executando como executable (PyInstaller)
+            path = os.path.dirname(sys.executable)
+        else:
+            # Executando como  script .py
+            path = os.path.dirname(os.path.abspath(sys.argv[0]))
+            
+        filename = os.path.join(path, config_name+ "\\" + file)           
         
         try:
             if not os.path.exists(filename):
                 os.system('cls')
-                print("No such file or directory.") #erro se o arquivo nao existir.
+                print("No such file or directory: " + filename) #erro se o arquivo nao existir.
             
             else:
                 with contextlib.ExitStack() as stack:

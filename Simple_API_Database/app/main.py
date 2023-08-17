@@ -8,7 +8,16 @@ import sys
 import ctypes
 import argparse
 
-sys.path.insert(1, os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates"))
+config_name = 'templates'
+           
+if getattr(sys, 'frozen', False):  #-----ATUALIZADO-----
+    # Executando como executable (PyInstaller)
+    path = os.path.dirname(sys.executable)
+else:
+    # Executando como  script .py
+    path = os.path.dirname(os.path.abspath(sys.argv[0]))
+
+sys.path.insert(1, os.path.join(path, config_name))
 import Routes #Carrega script com as rotas.
 
 class program:
@@ -39,9 +48,18 @@ class program:
             exit()
     
 if __name__ == "__main__":
-    
-    template_folder1 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
-    
+        
+    config_name = 'templates'
+           
+    if getattr(sys, 'frozen', False):  #-----ATUALIZADO-----
+        # Executando como executable (PyInstaller)
+        path = os.path.dirname(sys.executable)
+    else:
+        # Executando como  script .py
+        path = os.path.dirname(os.path.abspath(sys.argv[0]))
+            
+    template_folder1 = os.path.join(path, config_name)
+        
     app = Flask(__name__, template_folder=template_folder1) #AJUSTA A PASTA TEMPLATES
     
     app.config['JSON_SORT_KEYS'] = False #desativar ordem alfabética
