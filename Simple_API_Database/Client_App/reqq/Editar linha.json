@@ -1,7 +1,0 @@
-{
-    "method" : "PUT",
-    "IP" : "http://127.0.0.1:8080/nano",
-    "database" : "db.txt",
-    "index": 1,
-    "content":"linha 2 text"
-}
