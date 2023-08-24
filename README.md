@@ -15,6 +15,7 @@ Simple client and HTTP interactions for handling text files.
 <p>*In the client app, change the contents of the requests folder like IP, method and the content.</p>
 <p>*First option type 1, then the file name including the json extension to run the script.</p>
 <p>*Keep the file's structure for each method.</p>
+<p>*Start from __init__.py</p>
 <h4>Editing database</h4>
 <p>*Create csv_file: touch.json file already has a ready example in the "content" key of how columns and lines will be structured.</p>
 <p>Add/Edit -- line/column in csv_file. nano.json file: Change value of key "method" to PUT, if key "line" is 0, new column will be created
@@ -26,5 +27,3 @@ Simple client and HTTP interactions for handling text files.
 <h4>Reading database</h4>
 <p>cat.json: If the "Range" key is [0,0] it will list all lines. If "Range" is [any number,0] it will list lines from "any number" to the end. 
   If "Range" is [valueA, valueB] it will list between this range. If the key "column" value is different from "", it will only list values of this column.</p>
-
-<p>*Start from __init__.py</p>
