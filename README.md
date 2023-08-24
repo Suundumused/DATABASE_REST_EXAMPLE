@@ -17,7 +17,10 @@ Simple client and HTTP interactions for handling text files.
 <p>*Keep the file's structure for each method.</p>
 <h4>Editing database</h4>
 <p>*Create csv_file: touch.json file already has a ready example in the "content" key of how columns and lines will be structured.</p>
-<p>*Add/Edit -- line/column in csv_file: nano.json file: Change value of key "method" to PUT, if key "line" is 0, new column will be created, key 
-  "column" is column name. If line is greater than 0, it will replace the value of the specified line and column, if the column does not 
-  exist, it will automatically create new column and assign value in the line, if the line does not exist either, a new one will be created.</p>
+<p>*Add/Edit -- line/column in csv_file. nano.json file: Change value of key "method" to PUT, if key "line" is 0, new column will be created
+  and the value assigned to the row, key "column" is column name. If line is greater than 0, it will replace the value of the specified 
+  line and column, if the column does not exist, it will automatically create new column and assign value in the line, if the line does not exist either, 
+  a new one will be created.</p>
+<p>*Remove -- line/column in csv_file. nano.json file: Change value of key "method" to DELETE, If the key line has value 0, The entire column specified 
+  "column" will be deleted and all values. If the line key is greater than 0, it will delete the value of the specified line and column.</p>
 <p>*Start from __init__.py</p>
