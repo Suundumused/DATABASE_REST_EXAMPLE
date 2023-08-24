@@ -1,0 +1,10 @@
+{
+    "method" : "POST",
+    "IP" : "http://127.0.0.1:8080/touch",
+    "database" : "db2.csv",
+    "content":{
+        "coluna1": ["linha1", "linha2", "linhac3"],
+        "coluna2": ["linha1", "linha2", "linha3"],
+        "coluna3": ["linha1", "linha2", "linha3"]
+    }
+}
