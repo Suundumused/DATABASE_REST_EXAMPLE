@@ -25,5 +25,7 @@ Simple client and HTTP interactions for handling text files.
 <p>Remove -- line/column in csv_file. nano.json file: Change value of key "method" to DELETE, If the key line has value 0, The entire column specified 
   "column" will be deleted and all values. If the line key is greater than 0, it will delete the value of the specified line and column.</p>
 <h4>Reading database</h4>
-<p>cat.json: If the "Range" key is [0,0] it will list all lines. If "Range" is [any number,0] it will list lines from "any number" to the end. 
+<p>cat.json: If the "Range" key is [0,0] it will list all lines. If "Range" is [any number,0] it will list lines from "any number" to the end.
   If "Range" is [valueA, valueB] it will list between this range. If the key "column" value is different from "", it will only list values of this column.</p>
+<p>If "RangeMax" is not equal to 0 (specified) It will return numerical values less than "RangeMax" specified key. 
+  Column name must be specified, key "Range" will be ignored.</p>
