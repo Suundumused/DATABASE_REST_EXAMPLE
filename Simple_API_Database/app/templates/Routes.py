@@ -131,11 +131,12 @@ class Routes:
                 FileName = data.get('database') #carrega variável do json requisição.
                 Range = data.get('Range')
                 column = data.get("column")
+                RangeMax = data.get("RangeMax")
                 
                 if Protection.antiescape(FileName) == True: #proteje o servidor, exemplo de nome do arquivo: "../../../../../Windows/System32/appraiser.dll"
                     return jsonify({'Values': ["Access Violation."]}), 403
             
-                return Connector.ReadWrite.read_file(self.storage+"/"+FileName, Range, column) #retorna o novo conteúdo do arquivo.
+                return Connector.ReadWrite.read_file(self.storage+"/"+FileName, Range, column, RangeMax) #retorna o novo conteúdo do arquivo.
             
             else:
                 return jsonify({'Values': ["Wrong method"]}), 401

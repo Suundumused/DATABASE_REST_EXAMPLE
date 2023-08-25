@@ -10,39 +10,50 @@ import pandas as pd
 from flask import jsonify
 
 class ReadWrite: 
-    def read_file(filename, range, column):        
+    def read_file(filename, range, column, RangeMax):        
         try:
             data = []
             data2 = []
 
             df = pd.read_csv(filename)
-            
-            if column == "": #se coluna não especificada, resulta em todas as colunas.
-                data =  [df.columns.tolist()] + df.values.tolist()
+        
+            if RangeMax == 0: #se valor minimo específicado, que X na linha,
+                if column == "": #se coluna não especificada, resulta em todas as colunas.
+                    data =  [df.columns.tolist()] + df.values.tolist()
                 
-            else:
-                data =  [column] + df[column].values.tolist() #filtra a list com a coluna especificada
+                else:
+                    data =  [column] + df[column].values.tolist() #filtra a list com a coluna especificada
+                 
+                if range[0] == 0 and range[1] == 0: #se Range = [0,0] obtém todos as linhas.
+                    return jsonify({'Values': data}), 200
                 
-            if range[0] == 0 and range[1] == 0: #se Range = [0,0] obtém todos as linhas.
-                return jsonify({'Values': data}), 200
-            
-            elif range[0] != 0 and range[1] == 0:   #se range[algumvalor, 0] retorna linhas a partir do especificado até o final.
-                try:
-                    data2 = data[range[0]:]
-                    
-                    return jsonify({'Values': data2}), 200
+                elif range[0] != 0 and range[1] == 0:   #se range[algumvalor, 0] retorna linhas a partir do especificado até o final.
+                    try:
+                        data2 = data[range[0]:]
+                        
+                        return jsonify({'Values': data2}), 200
 
-                except:
-                    return jsonify({'Values': ["Out of bounds."]}), 409
-                
-            else:
-                try:
-                    data2 = data[range[0]:range[1]+1]
+                    except:
+                        return jsonify({'Values': ["Out of bounds."]}), 409
                     
-                    return jsonify({'Values': data2}), 200
+                else:
+                    try:
+                        data2 = data[range[0]:range[1]+1]
+                        
+                        return jsonify({'Values': data2}), 200
 
-                except:
-                    return jsonify({'Values': ["Out of bounds."]}), 409
+                    except:
+                        return jsonify({'Values': ["Out of bounds."]}), 409
+            else:
+                try: #retornar valores filtrados com valores menores que x
+                    data = df[column].values.tolist()
+                                        
+                    filtered_values = [column] + [item for item in data if item < RangeMax]
+                    
+                    return jsonify({'Values': filtered_values}), 200
+                
+                except Exception as e:
+                    return jsonify({'Values': [f"{repr(e)}"]}), 500
             
         except Exception as e:
             error_message = repr(e) #retorna erro Exception.
@@ -55,7 +66,7 @@ class ReadWrite:
             
             df.to_csv(filename, index=False)
                                             
-            return ReadWrite.read_file(filename, [0,0], "") #retorna o conteúdo do arquivo quando bem sucedido.
+            return ReadWrite.read_file(filename, [0,0], "", 0) #retorna o conteúdo do arquivo quando bem sucedido.
             
         except Exception as e:
             error_message = repr(e)
@@ -73,7 +84,7 @@ class ReadWrite:
                         
                         df.to_csv(filename, index=False)
                         
-                        return ReadWrite.read_file(filename, [0,0], "")
+                        return ReadWrite.read_file(filename, [0,0], "", 0)
                     
                     except:
                         return jsonify({'Values': ["Out of bounds."]}), 409
@@ -86,7 +97,7 @@ class ReadWrite:
                         
                         df.to_csv(filename, index=False)
                         
-                        return ReadWrite.read_file(filename, [0,0], "")
+                        return ReadWrite.read_file(filename, [0,0], "", 0)
                     
                     except:
                         return jsonify({'Values': ["Out of bounds."]}), 409
@@ -104,7 +115,7 @@ class ReadWrite:
                     
                     df.to_csv(filename, index=False) #SALVANDO ARQUIVO
                     
-                    return ReadWrite.read_file(filename, [0,0], "")        
+                    return ReadWrite.read_file(filename, [0,0], "", 0)        
                 
                 except:
                     return jsonify({'Values': ["Out of bounds."]}), 409 

@@ -1,4 +1,5 @@
-coluna1,coluna2,coluna3
-linha1,linha1,linha1
-linha2,linha2,linha2
-linhac3,linha3,xxx
+coluna1,coluna2,coluna3,colunaNumerica
+linha1,linha1,Pedro,3
+linha2,linha2,Paulo,6
+linhac3,linha3,Joao,4
+linha4,linha4,Felipe,8
