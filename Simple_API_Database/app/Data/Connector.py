@@ -46,9 +46,19 @@ class ReadWrite:
                         return jsonify({'Values': ["Out of bounds."]}), 409
             else:
                 try: #retornar valores filtrados com valores menores que x
-                    data = df[column].values.tolist()
+                    data3 = df[column].values.tolist() #coluna numerica escolhida.
+                    
+                    data4 = df.values.tolist()
+                    
+                    data5 = []                    
                                         
-                    filtered_values = [column] + [item for item in data if item < RangeMax]
+                    #filtered_values = [column] + [item for item in data3 if item < RangeMax]
+                    
+                    for index, x in enumerate (data4):
+                        if data3[index] < RangeMax:
+                            data5.append(data4[index])
+                            
+                    filtered_values = data5.copy()
                     
                     return jsonify({'Values': filtered_values}), 200
                 

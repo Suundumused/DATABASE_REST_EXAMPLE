@@ -3,9 +3,10 @@
     "IP" : "http://127.0.0.1:8080/touch",
     "database" : "db2.csv",
     "content":{
-        "coluna1": ["linha1", "linha2", "linhac3", "linha4"],
-        "coluna2": ["linha1", "linha2", "linha3", "linha4"],
-        "coluna3": ["Pedro", "Paulo", "Joao", "Felipe"],
-        "colunaNumerica": [3, 6, 4, 8]
+        "Nome": ["filme1", "filme2", "filme3", "filme4", "filme5", "filme6", "filme7", "filme8", "filme9", "filme10", "filmeA1", "filmeA2", "filmeA3", "filmeA4", "filmeA5", "filmeA6", "filmeA7", "filmeA8", "filmeA9", "filmeA10"],
+        "Rating": [2.3, 3.4, 5, 3.2, 4.4, 5, 3.2, 4.5, 4.4, 4.3, 4.2, 3.3, 3.1, 4, 3.1, 2.2, 2.1, 2, 1.4, 1.5],
+        "Duracao": [2.3, 3.4, 5, 3.2, 4.4, 5, 3.2, 4.5, 4.4, 4.3, 4.2, 3.3, 3.1, 4, 3.1, 2.2, 2.1, 2, 1.4, 1.5],
+        "Ano": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+        "Genero": ["Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino"]
     }
 }

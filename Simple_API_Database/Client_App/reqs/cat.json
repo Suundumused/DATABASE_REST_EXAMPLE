@@ -3,6 +3,6 @@
     "IP" : "http://127.0.0.1:8080/cat",
     "database" : "db2.csv",
     "Range" : [0,0], 
-    "column" : "coluna3",
-    "RangeMax" : 0
+    "column" : "Duracao",
+    "RangeMax" : 2
 }
