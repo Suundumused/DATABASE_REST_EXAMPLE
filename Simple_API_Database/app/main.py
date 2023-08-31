@@ -1,3 +1,4 @@
+import socket
 from flask import *
 
 from waitress import serve
@@ -33,7 +34,15 @@ class program:
         self.args = self.parser.parse_args()
     
         if self.args.host == "0.0.0.0":
-            print("Server running Forwarded at: " + str(self.args.port))
+            try:
+                s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                s.connect(('10.255.255.255', 1))
+            
+                IP = s.getsockname()[0]
+            except:
+                IP = '127.0.0.1'
+                
+            print(f"Server running Forwarded at: {IP}:{self.args.port}")
     
         else:
             print("Server running at: " + str(self.args.host) + ":" + str(self.args.port))
@@ -65,7 +74,7 @@ if __name__ == "__main__":
     app.config['JSON_SORT_KEYS'] = False #desativar ordem alfabética
     
     myappid = 'Suundumused.SimpleAPI.SimpleAPI.1' #Anexa id do desenvolvedor no processo.
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+    #ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
     
     routes = Routes.Routes(app) #carrega as rotas.
     program = program(app, routes) #incia o servidor.
